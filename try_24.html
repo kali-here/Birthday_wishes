@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Vaishnavi!</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Black screen */
+    #black-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 3;
+    }
+
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      animation: explode 2s ease-out infinite;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(3);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    /* Cheerful background */
+    #background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    /* Tulip bouquet */
+    #tulip {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      z-index: 2;
+      transition: transform 1s ease-in-out;
+    }
+
+    /* Happy Birthday text */
+    #message {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      color: #e74c3c;
+      font-size: 4em;
+      font-weight: bold;
+      text-align: center;
+      z-index: 2;
+      transition: transform 1s ease-in-out;
+    }
+
+    /* Additional Styles for Uploaded Code */
+    .celebration-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      background: #ffecd2;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    .celebration-message {
+      font-size: 2em;
+      color: #333;
+      margin: 20px 0;
+    }
+
+    .celebration-image {
+      width: 200px;
+      height: auto;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Black Screen -->
+  <div id="black-screen"></div>
+
+  <!-- Cheerful Background -->
+  <div id="background"></div>
+
+  <!-- Tulip Bouquet -->
+  <img id="tulip" src="https://example.com/tulip-bouquet.png" alt="Tulip Bouquet">
+
+  <!-- Happy Birthday Message -->
+  <div id="message">Happy Birthday, Vaishnavi!</div>
+
+  <!-- Celebration Section -->
+  <div class="celebration-container" id="celebration">
+    <img class="celebration-image" src="https://example.com/celebration-image.png" alt="Celebration">
+    <div class="celebration-message">Wishing you all the happiness and love in the world!</div>
+  </div>
+
+  <script>
+    // Display black screen and fireworks
+    const blackScreen = document.getElementById('black-screen');
+    const background = document.getElementById('background');
+    const tulip = document.getElementById('tulip');
+    const message = document.getElementById('message');
+    const celebration = document.getElementById('celebration');
+
+    // Fireworks effect
+    function createFirework() {
+      const firework = document.createElement('div');
+      firework.classList.add('firework');
+      firework.style.left = Math.random() * window.innerWidth + 'px';
+      firework.style.top = Math.random() * window.innerHeight + 'px';
+      document.body.appendChild(firework);
+
+      setTimeout(() => firework.remove(), 2000);
+    }
+
+    let fireworkInterval = setInterval(createFirework, 200);
+
+    // Transition to cheerful background and tulip bouquet
+    setTimeout(() => {
+      clearInterval(fireworkInterval);
+      blackScreen.style.display = 'none';
+      background.style.opacity = 1;
+      tulip.style.transform = 'translate(-50%, -50%) scale(1)';
+    }, 5000);
+
+    // Show Happy Birthday message
+    setTimeout(() => {
+      message.style.transform = 'translate(-50%, -50%) scale(1)';
+    }, 7000);
+
+    // Show Celebration Section
+    setTimeout(() => {
+      celebration.style.opacity = 1;
+    }, 9000);
+  </script>
+</body>
+</html>

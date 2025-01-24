@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Up Birthday Girl?</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="./srcImages/favicon-16x16.png">
+    <style>
+        /* Styles for the translucent button */
+        .btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn1 {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn1:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn1:active {
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: translate(-50%, -50%) scale(0.98);
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn:active {
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: translate(-50%, -50%) scale(0.98);
+        }
+
+        #content-container {
+            display: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .animated-text {
+            font-size: 3em;
+            font-weight: bold;
+            color: #f39c12;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: textAnimation 3s infinite alternate;
+        }
+
+        @keyframes textAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Initial Screen with Button -->
+    <div id="initial-screen">
+        <button class="btn" id="start-btn">Click Me!</button>
+    </div>
+
+    <!-- Content Container -->
+    <div id="content-container">
+        <div class="animated-text">Happy Birthday!</div>
+        <canvas id="canvas"></canvas>
+        <h1 class="heading">What's Up Birthday Girl? <br> <span>Wishing u a Happy Birthday!</span></h1>
+        <iframe style="display: none;" width="560" height="315" src="foryou.mp3?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+        <audio id="audio-player" autoplay>
+            <source src="foryou.mp3" type="audio/mpeg">
+        </audio>
+
+        <a class="btn1" href="Try_23.html" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);">Click Me!</a>
+
+        <script src="./script.js"></script>
+    </div>
+
+    <script>
+        const startBtn = document.getElementById('start-btn');
+        const initialScreen = document.getElementById('initial-screen');
+        const contentContainer = document.getElementById('content-container');
+        const audioPlayer = document.getElementById('audio-player');
+
+        startBtn.addEventListener('click', () => {
+            initialScreen.style.display = 'none';
+            contentContainer.style.display = 'block';
+            audioPlayer.play();
+        });
+    </script>
+</body>
+
+</html>

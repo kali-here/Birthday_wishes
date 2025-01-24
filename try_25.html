@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday!</title>
+  <style>
+    /* General styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    /* Button styles */
+    #startButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000;
+      color: yellow;
+      font-size: 3rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Content initially hidden */
+    #content {
+      display: none;
+    }
+
+    /* Title styling */
+    .titulo {
+      margin-bottom: 180px;
+      color: yellow;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      font-size: 3vh;
+      opacity: 0;
+      animation: fadeIn 4s ease-in-out forwards;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Background effects */
+    .night {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top, #000 50%, #333);
+    }
+
+    /* Flowers styling */
+    .flowers {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 100vh;
+    }
+
+    .flower {
+      position: absolute;
+      bottom: 10%;
+      width: 50px;
+      height: 50px;
+      background: yellow;
+      border-radius: 50%;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .flower:nth-child(odd) {
+      animation-delay: 1s;
+    }
+  </style>
+</head>
+<body>
+  <!-- Button to reveal the content -->
+  <div id="startButton">Your Gift!</div>
+
+  <!-- Hidden content -->
+  <div id="content">
+    <h1 class="titulo">
+      Happiest Birthday Vaishnavi! <br />
+      Hope your all wishes come true! ❤️
+    </h1>
+    <audio id="bgMusic" loop>
+      <source src="byme.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <div class="night"></div>
+    <div class="flowers">
+      <div class="flower" style="left: 10%;"></div>
+      <div class="flower" style="left: 30%;"></div>
+      <div class="flower" style="left: 50%;"></div>
+      <div class="flower" style="left: 70%;"></div>
+      <div class="flower" style="left: 90%;"></div>
+    </div>
+  </div>
+
+  <script>
+    // Event listener for the start button
+    document.getElementById("startButton").addEventListener("click", function () {
+      // Hide the button
+      document.getElementById("startButton").style.display = "none";
+
+      // Show the content
+      document.getElementById("content").style.display = "block";
+
+      // Play the background music
+      const bgMusic = document.getElementById("bgMusic");
+      bgMusic.play();
+    });
+  </script>
+</body>
+</html>
