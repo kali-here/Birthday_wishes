@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .message {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="birthday-message" class="message"></div>
+
+    <script>
+        const birthday = '04-23'; // MM-DD format, change this to your birthday
+        const today = new Date();
+        const currentDay = `${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
+        const messageElement = document.getElementById('birthday-message');
+
+        if (currentDay === birthday) {
+            messageElement.innerText = '🎉 Happy Birthday! Have an amazing day! 🎉';
+        } else {
+            messageElement.innerText = 'Sorry, this page only works on your birthday! 🎈';
+        }
+    </script>
+</body>
+</html>
